@@ -1,0 +1,31 @@
+from tkinter import *
+import tkinter.messagebox as tmsg
+root = Tk()
+
+def ok():
+    tmsg.showinfo("successfully!","your form is submited")
+    with open("speech.text","a") as g:
+        g.write(f"\n name = {user.get() ,usery.get()}")
+root.geometry("550x600")
+root.maxsize(700,750)
+root.minsize(350,300)
+root.configure(background="pink")
+root.title("VISHWAKARMA")
+n1 =Label(root,text="NAME",font="comicsansms,10,bold",fg="green",bg="pink")
+n1.grid(row=0,column=1)
+user = StringVar()
+usery = IntVar()
+userentry = Entry(root,textvariable=user)
+userentry.grid(row=0,column=2)
+
+cb1 = Checkbutton(text="do you want make the friend",variable=usery,bg="pink",fg="red")
+cb1.grid(row=2,column=3)
+
+b1 = Button(root,text="SUBMIT",fg="blue",bg="pink",font="comicsansms,7,bold",command=ok)
+b1.grid(row=1,column=3)
+
+f1 = Frame(root,bg="yellow",borderwidth=5,relief=SUNKEN)
+f1.grid(row=5,column=3)
+l1= Label(f1,text="sonu",fg="black")
+l1.pack(padx=50,pady=20,fill="x")
+root.mainloop()
